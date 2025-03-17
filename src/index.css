@@ -70,6 +70,7 @@
   }
 }
 
+
 @layer base {
   * {
     @apply border-border selection:bg-primary/10 selection:text-primary;
@@ -83,6 +84,11 @@
     @apply bg-background text-foreground antialiased overflow-x-hidden min-h-screen;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
+  html, body {
+    idth:100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold tracking-tight;

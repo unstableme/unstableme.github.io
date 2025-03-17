@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useIsVisible } from "@/utils/scrollUtils";
 import { cn } from "@/lib/utils";
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, Instagram } from "lucide-react";
@@ -14,6 +14,10 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("");
+  }, []);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -32,10 +36,10 @@ export function ContactSection() {
       };
       
       const response = await emailjs.send(
-        "service_id",
-        "template_id",
+        "service_",
+        "template_",
         templateParams,
-        "user_id"
+        ""
       );
       
       console.log("Email sent successfully:", response);
