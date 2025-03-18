@@ -32,12 +32,12 @@ export function HeroSection() {
           )}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-            Hello, I am <span className="text-gradient from-primary to-primary/70">Santosh</span>, and I am...
+            Hello, I am <span className="text-gradient from-primary to-primary/70">Santosh Sapkota</span>, and I am...
           </h1>
           <div className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary/90 h-16 md:h-24 flex justify-center items-center">
             <TypeWriter 
               words={roles} 
-              typingSpeed={60} // Even faster typing
+              typingSpeed={30} // Even faster typing
               erasingSpeed={30} // Even faster erasing
               delayBetweenWords={1500} 
             />
