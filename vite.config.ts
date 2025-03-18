@@ -19,4 +19,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    outDir: "docs", // 🔹 Change output folder to "docs" for GitHub Pages
+  },
 }));
