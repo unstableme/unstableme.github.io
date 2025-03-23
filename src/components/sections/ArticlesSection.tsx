@@ -24,6 +24,15 @@ const articlesData = [
   },
   {
     id: 3,
+    title: "Against All Odds: The Unbelievable Triumph of Rich Strike",
+    summary: "The story of Rich Strike(horse) and my take on it",
+    date: "March 23, 2025",
+    readTime: "4 min read",
+    image: "/RichStrike_GPT.webp",
+    url: "https://medium.com/@unstableme02/against-all-odds-the-unbelievable-triumph-of-rich-strike-eab8a5161282"
+  },
+  {
+    id: 4,
     title: "Thinking about next",
     summary: "Follow on medium to get update.",
     date: "",
