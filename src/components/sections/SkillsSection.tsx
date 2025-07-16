@@ -27,9 +27,8 @@ const skillCategories: SkillCategory[] = [
     id: 1,
     title: "Programming Languages",
     skills: [
-      { id: 1, name: "C", description: "Used for system programming and embedded systems" },
-      { id: 2, name: "C++", description: "Used for performance-critical applications" },
-      { id: 3, name: "Python", description: "Primary language for data science and backend development" },
+      
+      { id: 3, name: "Python", description: "Primary language for data science and backend development" }
     ],
   },
   {
@@ -67,8 +66,14 @@ const machineLearning: SubCategory = {
   id: 2,
   title: "Machine Learning",
   skills: [
-    { id: 1, name: "Supervised Learning", description: "ML with labeled training data" },
-    { id: 2, name: "Unsupervised Learning", description: "ML with unlabeled training data" },
+    { id: 1, name: "Supervised Learning", description: "Training deep networks on labeled data for classification and regression tasks" },
+    { id: 2, name: "Convolutional Neural Networks (CNNs)", description: "Foundational architecture for image and spatial data processing" },
+    { id: 3, name: "Transfer Learning", description: "Fine-tuning pre-trained models for new tasks with limited data" },
+    { id: 4, name: "YOLO (You Only Look Once)", description: "Real-time object detection system balancing speed and accuracy" },
+    { id: 5, name: "ResNet (Residual Networks)", description: "Deep networks with skip connections to avoid vanishing gradients" },
+    { id: 6, name: "U-Net", description: "CNN architecture designed for biomedical image segmentation" },
+    { id: 7, name: "Backpropagation & Optimization", description: "Algorithms like gradient descent, Adam, and RMSProp for training networks" },
+    { id: 8, name: "Object Detection & Segmentation", description: "Techniques and models for localizing and classifying objects in images" },
   ],
 };
 
@@ -80,7 +85,7 @@ const remainingCategories: SkillCategory[] = [
       { id: 1, name: "Algebra", description: "Foundation for advanced mathematics" },
       { id: 2, name: "Probability", description: "Used in statistical analysis and predictions" },
       { id: 3, name: "Statistics", description: "Data analysis and interpretation" },
-      { id: 4, name: "Problem Solving", description: "Analytical thinking and algorithmic approach" },
+      { id: 4, name: "Calculus", description: "Analytical thinking and algorithmic approach" },
     ],
   },
   {
@@ -91,6 +96,8 @@ const remainingCategories: SkillCategory[] = [
       { id: 2, name: "GitHub", description: "Collaboration platform for code" },
       { id: 3, name: "Web Scraping", description: "Automated data extraction from websites" },
       { id: 4, name: "ChatGPT", description: "AI Agent" },
+      { id: 5, name: "LaTeX", description: "Typesetting system for professional documents and research papers" },
+      { id: 6, name: "Zotero", description: "Reference manager for organizing and citing research sources" },
     ],
   },
 ];

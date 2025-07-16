@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { 
   User, GraduationCap, Star, FolderKanban, 
-  FileText, Heart, FileType2, MailOpen, Menu, X, Globe
+  FileText, Heart, FileType2, MailOpen, Menu, X, Globe, BookOpenCheck
 } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
@@ -18,6 +18,7 @@ const links: SidebarLink[] = [
   { id: "education", label: "Education", icon: <GraduationCap className="h-4 w-4" /> },
   { id: "skills", label: "Skills", icon: <Star className="h-4 w-4" /> },
   { id: "projects", label: "Projects", icon: <FolderKanban className="h-4 w-4" /> },
+  { id: "publications", label: "Publications", icon: <BookOpenCheck className="h-4 w-4" /> },
   { id: "articles", label: "Articles", icon: <FileText className="h-4 w-4" /> },
   { id: "hobbies", label: "Hobbies", icon: <Heart className="h-4 w-4" /> },
   { id: "resume", label: "Resume", icon: <FileType2 className="h-4 w-4" /> },

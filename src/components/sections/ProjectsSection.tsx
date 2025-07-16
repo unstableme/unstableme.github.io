@@ -75,7 +75,18 @@ const projectsData = [
     demoUrl: "https://unstable-photography.onrender.com/",
     repoUrl: "https://github.com/unstableme/Unstable_Photography",
     fullDescription: "I made this website in 10 days with the help of ChatGPT for organizing my photographs."
-  }
+  },
+
+  {
+  id: 8,
+    title: "Breast Cancer(IDC)Detection with CNN + Grad-CAM for Interpretability",
+    description: "Predict whether someone has breast cancer or not with the help of  Conovolutional Neural Networks and used Grad-CAM for interpretability on why model choses that decision.",
+    image: "/IDC_BC_Blue.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: ["Convolutional Neural Networks", "Deep Learning", "Neural Networks", "Medical Imaginig", "Histopathological Images", "Invasive Ductal Carcinoma"],
+    demoUrl: "#",
+    repoUrl: "https://github.com/unstableme/IDC_CNN-Grad-CAM",
+    fullDescription: "I used Convolutional neural networks (deep learning) to classify histopathological image whether the given image is cancerous or not and for explainability and transparency of model's decision Grad-CAM was deployed."
+  },
 ];
 
 export function ProjectsSection() {
