@@ -93,8 +93,8 @@ export function ContactSection() {
                 <Phone className="h-5 w-5 mr-3 mt-0.5 text-primary" />
                 <div>
                   <div className="font-medium mb-1">Phone</div>
-                  <a href="tel:+977-98403669--" className="text-sm text-muted-foreground hover:text-primary">
-                    +977-98403669_ _
+                  <a href="tel:+977-98403669-- " className="text-sm text-muted-foreground hover:text-primary">
+                    +977-98403669_ _  (Would 10*10 combinations make me safe?:)
                   </a>
                 </div>
               </div>

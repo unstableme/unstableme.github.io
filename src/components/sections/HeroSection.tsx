@@ -10,7 +10,7 @@ export function HeroSection() {
     rootMargin: "0px 0px 0px 0px"
   });
   
-  const roles = [ " Computer Engineer", "Data Scientist", "Web Developer"];
+  const roles = [ " Computer Engineer","Data Scientist", "ML Engineer",  "AI Enthusiast"];
   
   return (
     <section 
