@@ -18,10 +18,12 @@ const projectsData = [
     tags: [
       "FastAPI",
       "Docker",
+      "CI/CD Pipeline",
       "Deployment",
       "Convolutional Neural Networks",
       "Deep Learning",
       "Grad-CAM",
+      
     ],
     demoUrl: "https://idc-frontend-latest.onrender.com/",
     repoUrl:
