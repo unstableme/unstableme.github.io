@@ -111,6 +111,7 @@ const workflowSteps = [
   "Backend API Development",
   "Dockerization",
   "GitHub Repo",
+  "CI/CD Pipeline Automation",
   "Deployment",
   "Live Demo",
 ];
