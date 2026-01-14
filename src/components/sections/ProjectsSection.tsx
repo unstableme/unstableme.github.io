@@ -254,7 +254,7 @@ export function ProjectsSection() {
   const [selectedProject, setSelectedProject] =
     useState<null | (typeof projectsData)[0]>(null);
 
-  const [sortOrder, setSortOrder] = useState<"latest" | "oldest">("latest");
+  const [sortOrder, setSortOrder] = useState<"latest" | "oldest">("oldest");
 
   const sortedProjects = [...projectsData].sort((a, b) =>
     sortOrder === "latest" ? a.id - b.id : b.id - a.id
