@@ -35,7 +35,6 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { id: 1, name: "HTML", description: "Structure for web pages" },
       { id: 2, name: "CSS", description: "Styling for web applications" },
-      { id: 3, name: "JavaScript", description: "Interactive elements and functionality" },
     ],
   },
   {
@@ -43,21 +42,22 @@ const skillCategories: SkillCategory[] = [
     title: "Backend",
     skills: [
       { id: 1, name: "FastAPI", description: "Python web framework for easy API development" },
-      { id: 2, name: "SQL - SQLite3", description: "Lightweight database for local applications" },
-      { id: 3, name: "PostgreSQL", description: "Advanced relational database for production" },
+      { id: 2, name: "SQL - SQLite3", description: "Lightweight database for local applications" }
     ],
   },
 ];
 
 const dataScience: SubCategory = {
   id: 1,
-  title: "Data Science",
+  title: "Data Science & Python Libraries(for ML)",
   skills: [
     { id: 1, name: "Pandas", description: "Data manipulation and analysis library" },
     { id: 2, name: "NumPy", description: "Numerical computing library for large datasets" },
     { id: 3, name: "Matplotlib", description: "Comprehensive plotting and visualization library" },
     { id: 4, name: "Seaborn", description: "Statistical data visualization library" },
     { id: 5, name: "Scikit-learn", description: "Machine learning library for model training & evaluation" },
+    { id: 6, name: "Tensorflow", description: "ML model for training/evaluation."},
+    { id: 7, name: "PyTorch", description: "ML model for training/evaluation."},
   ],
 };
 
@@ -93,12 +93,15 @@ const remainingCategories: SkillCategory[] = [
     skills: [
       { id: 1, name: "Git", description: "Version control system" },
       { id: 2, name: "GitHub", description: "Collaboration platform for code & project management" },
-      { id: 3, name: "Web Scraping", description: "Automated data extraction from websites" },
-      { id: 4, name: "ChatGPT", description: "AI Agent" },
-      { id: 5, name: "LaTeX", description: "Typesetting system for professional documents and research papers" },
-      { id: 6, name: "Zotero", description: "Reference manager for organizing and citing research sources" },
-      { id: 7, name: "Docker", description: "Containerization for reproducible deployments" },
-      { id: 8, name: "Render Deployment", description: "Deploying apps & APIs on Render" },
+      { id: 3, name: "LaTeX", description: "Typesetting system for professional documents and research papers" },
+      { id: 4, name: "Zotero", description: "Reference manager for organizing and citing research sources" },
+      { id: 5, name: "Docker", description: "Containerization for reproducible deployments" },
+      { id: 6, name: "DVC", description: "Data versioning & pipeline management" },
+      { id: 7, name: "MLflow", description: "Experiment tracking and model registry" },
+      { id: 8, name: "Airflow", description: "Workflow orchestration for ML pipelines" },
+      { id: 9, name: "FastAPI", description: "Serving models through APIs" },
+      { id: 10, name: "Render / Deployment", description: "Cloud deployment for apps & APIs" },
+      { id: 11, name: "Prometheus & Grafana", description: "Monitoring the metrics and information."},
     ],
   },
 ];
@@ -106,14 +109,16 @@ const remainingCategories: SkillCategory[] = [
 // Workflow / Synopsis
 const workflowSteps = [
   "Data Collection",
+  "Data Processing",
   "Model Development & Training",
-  "Model Evaluation",
+  "Data & Model Versioning (DVC)",
+  "Experiment Tracking & Logging (MLflow)",
+  "Pipeline Orchestration (Airflow)",
   "Backend API Development",
-  "Dockerization",
-  "GitHub Repo",
-  "CI/CD Pipeline Automation",
-  "Deployment",
-  "Live Demo",
+  "Dockerization & Container Setup",
+  "CI/CD Automation",
+  "Deployment to Cloud (Render/Railway)",
+  "Live Demo & Monitoring(Grafana)",
 ];
 
 export function SkillsSection() {

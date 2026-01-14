@@ -7,90 +7,61 @@ import { ExternalLink, Github, X } from "lucide-react";
 // UPDATED PROJECT LIST — NEWEST → OLDEST (INTELLIGENT DIET PLANNER ADDED)
 // -----------------------------------------------------------------------------
 const projectsData = [
-  // 1. NEWEST — FastAPI + Docker + Render Deployment
+  // 1. OLDEST — Intelligent Diet Planner
   {
     id: 1,
-    title:
-      "End-to-End Deployment & Dockerization of IDC Breast Cancer Detection (FastAPI + CNN + Grad-CAM)",
-    description:
-      "Containerized and deployed the IDC Breast Cancer CNN + Grad-CAM model using FastAPI and Docker, then deployed on Render.",
-    image: "/IDC_BC_Blue.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: [
-      "FastAPI",
-      "Docker",
-      "CI/CD Pipeline",
-      "Deployment",
-      "Convolutional Neural Networks",
-      "Deep Learning",
-      "Grad-CAM",
-      
-    ],
-    demoUrl: "https://idc-frontend-latest.onrender.com/",
-    repoUrl:
-      "https://github.com/unstableme/Complete_Pipeline_BreastCancerGradCAM",
+    title: "Intelligent Diet Planner",
+    description: "Recommends diet to user based on their workout & goal.",
+    image: "/IDP.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "Machine Learning", "KNNBasic", "Django", "HTML", "CSS", "JS"],
+    demoUrl: "#",
+    repoUrl: "https://github.com/unstableme/Intelligent_diet_planner",
     fullDescription:
-      "Complete production-ready pipeline including FastAPI backend, Dockerization, Grad-CAM explainability, and deployment on Render.",
+      "A Django web application powered by ML to recommend diets tailored to user fitness goals.",
   },
 
-  // 2. IDC CNN + Grad-CAM (original)
+  // 2. Laptop Price Prediction
   {
     id: 2,
-    title:
-      "Breast Cancer (IDC) Detection with CNN + Grad-CAM for Interpretability",
+    title: "Laptop Price Prediction",
     description:
-      "Predicts whether a histopathology image is cancerous using CNNs and uses Grad-CAM for visual explanation.",
-    image: "/IDC_BC_Blue.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: [
-      "Convolutional Neural Networks",
-      "Deep Learning",
-      "Neural Networks",
-      "Medical Imaging",
-      "Grad-CAM",
-    ],
-    demoUrl: "https://idc-frontend-latest.onrender.com/",
-    repoUrl: "https://github.com/unstableme/IDC_CNN-Grad-CAM",
+      "Predicts laptop prices based on specifications using ML models.",
+    image: "/Laptop Price Predict.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "Data Science", "ML Model"],
+    demoUrl: "#",
+    repoUrl: "https://github.com/unstableme/Laptop-Price-Prediction",
     fullDescription:
-      "Trained a deep CNN on histopathology images and used Grad-CAM for transparent model interpretation.",
+      "Used ML models to predict laptop prices based on hardware specifications.",
   },
 
-  // 3. Unstable Photography
+  // 3. Visa Requirement Prediction
   {
     id: 3,
-    title: "Unstable Photography Gallery",
-    description: "Gallery for organizing my photographs.",
-    image: "/Photograph gallery.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: [
-      "Python",
-      "Django",
-      "HTML",
-      "CSS",
-      "JS",
-      "ChatGPT",
-      "Cloudinary",
-      "PostgreSQL",
-    ],
-    demoUrl: "https://unstable-photography.onrender.com/",
-    repoUrl: "https://github.com/unstableme/Unstable_Photography",
+    title: "Visa Requirement Prediction",
+    description:
+      "Predicts visa requirements between two countries using ML classification.",
+    image: "/Visa Req Predict.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "Data Visualization", "ML Model"],
+    demoUrl: "#",
+    repoUrl: "https://github.com/unstableme/Visa_Requirement_Prediction",
     fullDescription:
-      "Photography management web application built using Django with cloud integration.",
+      "Classification model predicting visa requirements between countries.",
   },
 
-  // 4. Breast Cancer Prediction (UCI)
+  // 4. Book Detail Scraping
   {
     id: 4,
-    title: "Breast Cancer Prediction",
-    description:
-      "Predict breast cancer using a neural network trained on the UCI dataset.",
-    image: "/Breast Cancer.jpg?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "Machine Learning", "Neural Networks", "Deep Learning"],
+    title: "Book Detail Scraping",
+    description: "Scraped book details using BeautifulSoup and Requests.",
+    image: "/Book scraping.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "Beautiful Soup", "Web Scraping", "Request", "Excel"],
     demoUrl: "#",
-    repoUrl:
-      "https://github.com/unstableme/Breast_cancer_UCI_NN/blob/main/breast_cancer_uci.ipynb",
+    repoUrl: "https://github.com/unstableme/BOOKDETAILSCRAPING",
     fullDescription:
-      "Neural network classifier trained on UCI breast cancer dataset.",
+      "Scraped a books website and exported the scraped data into Excel.",
   },
 
-  // 5. Medical Appointment
+  // 5. Medical Appointment No-Shows
   {
     id: 5,
     title: "Medical Appointment Shows/No-Shows",
@@ -112,60 +83,124 @@ const projectsData = [
       "ML classification models predicting patient attendance patterns.",
   },
 
-  // 6. Book Detail Scraping
+  // 6. Breast Cancer Prediction (UCI)
   {
     id: 6,
-    title: "Book Detail Scraping",
-    description: "Scraped book details using BeautifulSoup and Requests.",
-    image: "/Book scraping.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "Beautiful Soup", "Web Scraping", "Request", "Excel"],
+    title: "Breast Cancer Prediction",
+    description:
+      "Predict breast cancer using a neural network trained on the UCI dataset.",
+    image: "/Breast Cancer.jpg?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "Machine Learning", "Neural Networks", "Deep Learning"],
     demoUrl: "#",
-    repoUrl: "https://github.com/unstableme/BOOKDETAILSCRAPING",
+    repoUrl:
+      "https://github.com/unstableme/Breast_cancer_UCI_NN/blob/main/breast_cancer_uci.ipynb",
     fullDescription:
-      "Scraped a books website and exported the scraped data into Excel.",
+      "Neural network classifier trained on UCI breast cancer dataset.",
   },
 
-  // 7. Visa Requirement Prediction
+  // 7. Unstable Photography
   {
     id: 7,
-    title: "Visa Requirement Prediction",
-    description:
-      "Predicts visa requirements between two countries using ML classification.",
-    image: "/Visa Req Predict.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "Data Visualization", "ML Model"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/unstableme/Visa_Requirement_Prediction",
+    title: "Unstable Photography Gallery",
+    description: "Gallery for organizing my photographs.",
+    image: "/Photograph gallery.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: [
+      "Python",
+      "Django",
+      "HTML",
+      "CSS",
+      "JS",
+      "ChatGPT",
+      "Cloudinary",
+      "PostgreSQL",
+    ],
+    demoUrl: "https://unstable-photography.onrender.com/",
+    repoUrl: "https://github.com/unstableme/Unstable_Photography",
     fullDescription:
-      "Classification model predicting visa requirements between countries.",
+      "Photography management web application built using Django with cloud integration.",
   },
 
-  // 8. Laptop Price Prediction
+  // 8. IDC CNN + Grad-CAM
   {
     id: 8,
-    title: "Laptop Price Prediction",
+    title:
+      "Breast Cancer (IDC) Detection with CNN + Grad-CAM for Interpretability",
     description:
-      "Predicts laptop prices based on specifications using ML models.",
-    image: "/Laptop Price Predict.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "Data Science", "ML Model"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/unstableme/Laptop-Price-Prediction",
+      "Predicts whether a histopathology image is cancerous using CNNs and uses Grad-CAM for visual explanation.",
+    image: "/IDC_BC_Blue.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: [
+      "Convolutional Neural Networks",
+      "Deep Learning",
+      "Neural Networks",
+      "Medical Imaging",
+      "Grad-CAM",
+    ],
+    demoUrl: "https://idc-frontend-latest.onrender.com/",
+    repoUrl: "https://github.com/unstableme/IDC_CNN-Grad-CAM",
     fullDescription:
-      "Used ML models to predict laptop prices based on hardware specifications.",
+      "Trained a deep CNN on histopathology images and used Grad-CAM for transparent model interpretation.",
   },
 
-  // 9. ★ NEWLY ADDED — Intelligent Diet Planner (OLDEST)
+  // 9. NEWEST — End-to-End Deployment
   {
     id: 9,
-    title: "Intelligent Diet Planner",
-    description: "Recommends diet to user based on their workout & goal.",
-    image: "/IDP.jpeg?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "Machine Learning", "KNNBasic", "Django", "HTML", "CSS", "JS"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/unstableme/Intelligent_diet_planner",
+    title:
+      "End-to-End Deployment & Dockerization of IDC Breast Cancer Detection (FastAPI + CNN + Grad-CAM)",
+    description:
+      "Containerized and deployed the IDC Breast Cancer CNN + Grad-CAM model using FastAPI and Docker, then deployed on Render.",
+    image: "/IDC_BC_Blue.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: [
+      "FastAPI",
+      "Docker",
+      "CI/CD Pipeline",
+      "Deployment",
+      "Convolutional Neural Networks",
+      "Deep Learning",
+      "Grad-CAM",
+    ],
+    demoUrl: "https://idc-frontend-latest.onrender.com/",
+    repoUrl:
+      "https://github.com/unstableme/Complete_Pipeline_BreastCancerGradCAM",
     fullDescription:
-      "A Django web application powered by ML to recommend diets tailored to user fitness goals.",
+      "Complete production-ready pipeline including FastAPI backend, Dockerization, Grad-CAM explainability, and deployment on Render.",
   },
+
+  // 10. NEW — ICU Patient Deterioration Early-Warning System
+  {
+    id: 10,
+    title: "ICU Patient Deterioration Early-Warning System (1D-CNN + GRU + MLOps)",
+    description:
+      "Predicts ICU patient deterioration in the next 6 hours using time-series vitals and a 1D CNN + GRU model, with full MLOps pipeline.",
+    image: "/ICU_project.jpeg?auto=format&fit=crop&w=800&q=80",
+    tags: [
+      "Python",
+      "Deep Learning",
+      "1D-CNN",
+      "GRU",
+      "Time-Series",
+      "MLOps",
+      "DVC",
+      "MLflow",
+      "Airflow",
+      "FastAPI",
+      "Docker",
+      "Prometheus",
+      "Grafana",
+      "EvidentlyAI",
+      "Deployment",
+    ],
+    demoUrl: "https://icu-deterioration-frontend-production.up.railway.app/",
+    repoUrl: "https://github.com/unstableme/ICU-Deterioration-MLOps",
+    fullDescription:
+      "A research-grade healthcare MLOps project predicting ICU patient deterioration using 1D CNN + GRU on PhysioNet 2012 vitals. "
+      + "Includes full MLOps stack: DVC for data versioning, MLflow for experiment tracking, Airflow for pipeline orchestration, "
+      + "and Dockerized FastAPI deployment. Focused on clinical relevance, explainability, and end-to-end production readiness.",
+  },
+
+
+
 ];
+
 
 // -----------------------------------------------------------------------------
 // FLIP ANIMATION HOOK
@@ -260,10 +295,10 @@ export function ProjectsSection() {
               className="px-3 py-2 rounded-lg bg-primary/10 border border-primary/30 text-sm"
             >
               <option className="text-black" value="latest">
-                Newest → Oldest
+                Oldest → Newest
               </option>
               <option className="text-black" value="oldest">
-                Oldest → Newest
+                Newest → Oldest
               </option>
             </select>
           </div>
