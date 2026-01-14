@@ -171,7 +171,7 @@ const projectsData = [
     title: "ICU Patient Deterioration Early-Warning System (1D-CNN + GRU + MLOps)",
     description:
       "Predicts ICU patient deterioration in the next 6 hours using time-series vitals and a 1D CNN + GRU model, with full MLOps pipeline.",
-    image: "/ICU_project.jpeg?auto=format&fit=crop&w=800&q=80",
+    image: "/ICU_Deterioration.jpeg?auto=format&fit=crop&w=800&q=80",
     tags: [
       "Python",
       "Deep Learning",
