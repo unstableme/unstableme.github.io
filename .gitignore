@@ -1,0 +1,5 @@
+backend/myvenv/
+backend/__pycache__
+backend/.env
+backend/vectordb
+backend/data
