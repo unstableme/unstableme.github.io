@@ -1,5 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 langchain
 langchain-community
 chromadb
@@ -7,3 +7,11 @@ sentence-transformers
 transformers
 torch
 pypdf
+python-dotenv
+aiofiles
+requests
+tqdm
+scikit-learn
+pytesseract
+pdf2image
+poppler
