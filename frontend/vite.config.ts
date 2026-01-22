@@ -20,6 +20,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "docs", // 🔹 Change output folder to "docs" for GitHub Pages
+    outDir: "../docs", // 🔹 Change output folder to "docs" for GitHub Pages
   },
 }));
