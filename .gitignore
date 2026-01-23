@@ -2,3 +2,4 @@ backend/myvenv/
 backend/__pycache__
 backend/.env
 backend/data
+backend/rag/__pycache__

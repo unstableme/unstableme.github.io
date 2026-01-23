@@ -2,9 +2,8 @@
 vectordb/
 *.sqlite3
 *.bin
+myvenv
+.env
+data/*.pdf
 
-../docs
-../frontend
 
-# Ignore frontend lock files
-frontend/bun.lockb
