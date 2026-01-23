@@ -1,4 +1,14 @@
-myvenv/
-data/
-__pycache__
-rag/__pycache__
+# Ignore vectordb
+vectordb/
+*.sqlite3
+*.bin
+
+# Ignore docs images/pdfs
+docs/*.pdf
+docs/*.jpg
+docs/*.jpeg
+docs/*.png
+docs/*.webp
+
+# Ignore frontend lock files
+frontend/bun.lockb
