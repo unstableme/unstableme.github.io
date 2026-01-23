@@ -7,7 +7,9 @@ export interface Message {
   content: string;
 }
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/chat";
+const API_URL =
+  (import.meta.env.VITE_API_URL || "http://localhost:8000") + "/chat";
+
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
