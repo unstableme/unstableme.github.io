@@ -3,12 +3,8 @@ vectordb/
 *.sqlite3
 *.bin
 
-# Ignore docs images/pdfs
-docs/*.pdf
-docs/*.jpg
-docs/*.jpeg
-docs/*.png
-docs/*.webp
+../docs
+../frontend
 
 # Ignore frontend lock files
 frontend/bun.lockb
