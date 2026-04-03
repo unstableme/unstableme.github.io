@@ -64,12 +64,14 @@ export function ContactSection() {
   };
   
   return (
-    <section id="contact" className="section-container" ref={ref}>
+    <section id="contact" className="section-container py-24 md:py-32" ref={ref}>
       <div className={cn(
-        "opacity-0 transform translate-y-8 transition-all duration-700 ease-out-expo delay-700",
+        "opacity-0 transform translate-y-8 transition-all duration-1000 ease-out-expo",
         isVisible && "opacity-100 transform-none"
       )}>
-        <h2 className="text-3xl md:text-4xl mb-12 text-center">Contact</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-16 text-foreground tracking-tighter">
+          Let's Connect
+        </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           <div className={cn(

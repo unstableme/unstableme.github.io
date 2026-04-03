@@ -125,17 +125,19 @@ export function SkillsSection() {
   const { ref, isVisible } = useIsVisible();
 
   return (
-    <section id="skills" className="section-container" ref={ref}>
+    <section id="skills" className="section-container py-24 md:py-32" ref={ref}>
       <div className={cn(
-        "opacity-0 transform translate-y-8 transition-all duration-700 ease-out-expo delay-200",
+        "opacity-0 transform translate-y-8 transition-all duration-1000 ease-out-expo delay-200 w-full",
         isVisible && "opacity-100 transform-none"
       )}>
-        <h2 className="text-3xl md:text-4xl mb-12 text-center">Skills</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-16 text-foreground tracking-tighter w-full">
+          Skills
+        </h2>
 
-        <div className="space-y-10">
+        <div className="space-y-10 w-full lg:max-w-5xl mx-auto text-left">
           {skillCategories.map((category) => (
-            <div key={category.id} className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-medium">{category.title}</h3>
+            <div key={category.id} className="space-y-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground/90 border-l-2 border-primary pl-4 inline-block">{category.title}</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
                 {category.skills.map((skill, index) => (
                   <SkillItem key={skill.id} skill={skill} index={index} isVisible={isVisible} />
@@ -145,7 +147,7 @@ export function SkillsSection() {
           ))}
 
           <div className="space-y-4">
-            <h3 className="text-xl md:text-2xl font-medium">Data Science & Machine Learning</h3>
+            <h3 className="text-xl md:text-2xl font-medium text-foreground">Data Science & Machine Learning</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <h4 className="text-lg font-medium text-primary/80">{dataScience.title}</h4>
@@ -168,7 +170,7 @@ export function SkillsSection() {
 
           {remainingCategories.map((category) => (
             <div key={category.id} className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-medium">{category.title}</h3>
+              <h3 className="text-xl md:text-2xl font-medium text-foreground">{category.title}</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {category.skills.map((skill, index) => (
                   <SkillItem key={skill.id} skill={skill} index={index} isVisible={isVisible} />
@@ -178,14 +180,14 @@ export function SkillsSection() {
           ))}
 
           {/* SYNOPSIS */}
-          <div className="mt-16">
-            <h3 className="text-xl md:text-2xl font-medium mb-6 text-center">Synopsis</h3>
+          <div className="mt-16 w-full">
+            <h3 className="text-xl md:text-2xl font-bold mb-6 text-foreground border-l-2 border-primary pl-4 inline-block">Synopsis</h3>
             <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
               {workflowSteps.map((step, index) => (
                 <div key={index} className="flex items-center">
                   <div
                     className={cn(
-                      "px-4 py-2 rounded-lg bg-gradient-to-r from-primary/20 to-primary/10 text-sm font-medium cursor-default transform transition-all hover:scale-105 hover:shadow-lg",
+                      "px-4 py-2 rounded-xl bg-gradient-to-r from-primary/20 to-primary/10 text-sm font-medium cursor-default transform transition-all hover:scale-105 hover:shadow-lg text-foreground",
                       isVisible && "opacity-100 animate-fade-in"
                     )}
                     style={{
@@ -213,19 +215,17 @@ function SkillItem({ skill, index, isVisible }: { skill: Skill, index: number, i
   return (
     <div 
       className={cn(
-        "glass p-4 rounded-xl text-center transform opacity-0 transition-all cursor-default hover:shadow-lg hover:-translate-y-1",
-        "dark:bg-black/20 dark:border-white/10 dark:hover:shadow-white/20",
-        "bg-gray-50 border border-gray-200 shadow-sm", // Light mode styling
+        "card-teal-border p-4 rounded-xl bg-card backdrop-blur-sm transform opacity-0 transition-all cursor-default group",
         isVisible && "opacity-100 animate-fade-in"
       )}
       style={{ 
-        animationDelay: `${index * 100}ms`,
+        animationDelay: `${index * 50}ms`,
         animationFillMode: 'forwards',
         animationDuration: '600ms'
       }}
-      title={skill.description} // tooltip on hover
+      title={skill.description}
     >
-      <div className="font-medium">{skill.name}</div>
+      <div className="font-bold text-foreground group-hover:text-primary transition-colors text-sm md:text-base">{skill.name}</div>
     </div>
   );
 }

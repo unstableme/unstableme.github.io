@@ -16,14 +16,14 @@ export function PublicationSection() {
   const { ref, isVisible } = useIsVisible();
 
   return (
-    <section id="publications" className="section-container" ref={ref}>
-      <div
-        className={cn(
-          "opacity-0 transform translate-y-8 transition-all duration-700 ease-out-expo delay-600",
-          isVisible && "opacity-100 transform-none"
-        )}
-      >
-        <h2 className="text-3xl md:text-4xl mb-12 text-center">Publications</h2>
+    <section id="publications" className="section-container py-24 md:py-32" ref={ref}>
+      <div className={cn(
+        "opacity-0 transform translate-y-8 transition-all duration-1000 ease-out-expo",
+        isVisible && "opacity-100 transform-none"
+      )}>
+        <h2 className="text-4xl md:text-6xl font-bold mb-16 text-white tracking-tighter">
+          Publication
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6">
           {publicationsData.map((pub, index) => (
