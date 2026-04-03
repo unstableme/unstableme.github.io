@@ -14,7 +14,7 @@ export function CursorSmoke() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particles = useRef<Particle[]>([]);
   const mouse = useRef({ x: 0, y: 0, lastX: 0, lastY: 0 });
-  const hue = useRef(210); // Start with a nice blue
+  const hue = useRef(184); // Match the #00f5ff cyan primary
 
   useEffect(() => {
     const canvas = canvasRef.current;

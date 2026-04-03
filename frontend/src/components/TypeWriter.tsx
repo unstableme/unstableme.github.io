@@ -27,41 +27,33 @@ export function TypeWriter({
     const currentWord = words[wordIndex];
 
     const handleTyping = () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-
       if (isDeleting) {
-        // Deleting text - keep it fast
+        // Deleting text
         if (displayText.length > 0) {
-          setDisplayText(currentWord.substring(0, displayText.length - 1));
-          timeoutRef.current = setTimeout(handleTyping, erasingSpeed);
+          setDisplayText(prev => prev.substring(0, prev.length - 1));
         } else {
           setIsDeleting(false);
           setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-          // Quick transition to next word
-          timeoutRef.current = setTimeout(handleTyping, 200);
         }
       } else {
-        // Typing text - keep it consistent
+        // Typing text
         if (displayText.length < currentWord.length) {
           setDisplayText(currentWord.substring(0, displayText.length + 1));
-          timeoutRef.current = setTimeout(handleTyping, typingSpeed);
         } else {
           // Word is fully typed, pause before erasing
-          timeoutRef.current = setTimeout(() => {
+          const timer = setTimeout(() => {
             setIsDeleting(true);
-            handleTyping();
           }, delayBetweenWords);
+          return () => clearTimeout(timer);
         }
       }
     };
 
-    // Start the typing cycle immediately
-    timeoutRef.current = setTimeout(handleTyping, 0);
+    const speed = isDeleting ? erasingSpeed : typingSpeed;
+    const timer = setTimeout(handleTyping, speed);
 
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [displayText, wordIndex, isDeleting, words, typingSpeed, erasingSpeed, delayBetweenWords]);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, wordIndex, words, typingSpeed, erasingSpeed, delayBetweenWords]);
 
   return (
     <div className={cn("inline-flex items-center", className)}>

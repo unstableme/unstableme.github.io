@@ -39,31 +39,31 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 240 10% 2%;  /* #050505 */
+    --foreground: 0 0% 100%;
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 10% 2%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 184 100% 50%; /* #00f5ff */
+    --primary-foreground: 184 100% 5%;
+    --secondary: 240 3.7% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 5% 40%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 184 100% 50%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 240 3.7% 10%;
+    --input: 240 3.7% 10%;
+    --ring: 184 100% 50%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-background: 240 10% 2%;
+    --sidebar-foreground: 0 0% 90%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent: 240 3.7% 10%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
@@ -156,6 +156,18 @@
   
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  .section-number {
+    @apply text-primary font-mono text-sm tracking-widest uppercase mb-2 block;
+  }
+
+  .cyan-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[#00a3ff];
+  }
+
+  .card-teal-border {
+    @apply border border-primary/20 hover:border-primary/50 transition-colors;
   }
 }
 

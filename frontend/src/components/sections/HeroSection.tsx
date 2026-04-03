@@ -11,12 +11,10 @@ export function HeroSection() {
     rootMargin: "0px 0px 0px 0px"
   });
 
-  const roles = [" Computer Engineer", "Data Scientist", "ML Engineer", "AI Enthusiast"];
-
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center items-center relative py-16 md:py-24 overflow-hidden"
+      className="min-h-[60vh] flex flex-col justify-start items-center relative py-10 md:py-20 overflow-hidden"
       ref={ref}
     >
       {/* Cursor smoke */}
@@ -33,29 +31,32 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-6 md:px-12">
         <div
           className={cn(
-            "text-center max-w-3xl mx-auto opacity-0 transform translate-y-8 transition-all duration-1000 ease-out-expo",
+            "text-left max-w-5xl opacity-0 transform translate-y-8 transition-all duration-1000 ease-out-expo lg:-ml-12",
             isVisible && "opacity-100 transform-none"
           )}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-            Hello, I am{" "}
-            <span className="text-gradient from-primary to-primary/70">
-              Santosh Sapkota
-            </span>
-            , and I am...
+          <h1 className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-2 text-foreground">
+            Hello, I'm <br />
+            Santosh Sapkota.
           </h1>
 
-          <div className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary/90 h-16 md:h-24 flex justify-center items-center">
-            <TypeWriter
-              words={roles}
-              typingSpeed={30}
-              erasingSpeed={30}
-              delayBetweenWords={1500}
-            />
-          </div>
+          <h2 className="text-4xl md:text-7xl font-bold cyan-gradient-text tracking-tighter mt-4 leading-tight">
+            and I am <br /> 
+            <span className="flex items-center gap-4">
+              <span className="text-primary font-bold">
+                <TypeWriter
+                  words={["ML engineer", "AI enthusiast", "Computer engineer"]}
+                  typingSpeed={50}
+                  erasingSpeed={30}
+                  delayBetweenWords={2000}
+                />
+              </span>
+              <span className="h-[2px] w-12 bg-primary inline-block"></span>
+            </span>
+          </h2>
         </div>
       </div>
 

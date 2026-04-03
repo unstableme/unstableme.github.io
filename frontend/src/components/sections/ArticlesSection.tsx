@@ -63,11 +63,11 @@ export function ArticlesSection() {
     <section id="articles" className="section-container" ref={ref}>
       <div
         className={cn(
-          "opacity-0 transform translate-y-8 transition-all duration-700 ease-out-expo delay-400",
+          "opacity-0 transform translate-y-8 transition-all duration-700 ease-out-expo delay-400 flex flex-col items-center",
           isVisible && "opacity-100 transform-none"
         )}
       >
-        <h2 className="text-3xl md:text-4xl mb-6 text-center">Articles</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-16 text-foreground tracking-tighter text-center w-full">Articles</h2>
 
         {/* SORT DROPDOWN */}
         <div className="flex justify-end mb-4 relative">
