@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="batman" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Santosh Sapkota</title>
-    <meta name="description" content="Portfolio Website of Santosh" />
-    <meta name="author" content="Portfolio" />
+    <title>Santosh Sapkota — ML Engineer</title>
+    <meta name="description" content="Portfolio of Santosh Sapkota — Machine Learning Engineer" />
+    <meta name="author" content="Santosh Sapkota" />
     <meta property="og:image" content="/me.jpeg" />
-    <script type="module" crossorigin src="/assets/index-UvSn7-Y_.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D6qFd6gE.css">
+    <script>
+      // Set mode before first paint to avoid flash of wrong theme.
+      (function () {
+        try {
+          var m = localStorage.getItem("portfolio-mode");
+          if (m !== "batman" && m !== "nepal") m = "batman";
+          document.documentElement.dataset.mode = m;
+          document.documentElement.classList.toggle("dark", m === "batman");
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CbTxGE8Z.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-XEPHt7vL.css">
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
 </html>

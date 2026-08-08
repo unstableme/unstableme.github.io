@@ -1,70 +1,93 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 
-type Theme = "dark" | "light" | "system";
+export type Mode = "batman" | "nepal";
 
-type ThemeProviderProps = {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-  storageKey?: string;
+const STORAGE_KEY = "portfolio-mode";
+
+type ThemeState = {
+  mode: Mode;
+  /** Toggle mode. Pass the click point so the new theme bleeds outward from it. */
+  toggleMode: (origin?: { x: number; y: number }) => void;
+  setMode: (mode: Mode, origin?: { x: number; y: number }) => void;
 };
 
-type ThemeProviderState = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-};
+const ThemeContext = createContext<ThemeState | undefined>(undefined);
 
-const initialState: ThemeProviderState = {
-  theme: "system",
-  setTheme: () => null,
-};
+function readStoredMode(): Mode {
+  try {
+    const m = localStorage.getItem(STORAGE_KEY);
+    return m === "nepal" ? "nepal" : "batman";
+  } catch {
+    return "batman";
+  }
+}
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+function applyMode(mode: Mode) {
+  const root = document.documentElement;
+  root.dataset.mode = mode;
+  // "dark" class keeps tailwind dark: variants (shadcn ui, toasts) coherent
+  root.classList.toggle("dark", mode === "batman");
+}
 
-export function ThemeProvider({
-  children,
-  defaultTheme = "system",
-  storageKey = "portfolio-ui-theme",
-  ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [mode, setModeState] = useState<Mode>(readStoredMode);
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
+    applyMode(mode);
+    try {
+      localStorage.setItem(STORAGE_KEY, mode);
+    } catch {
+      /* private browsing */
+    }
+  }, [mode]);
 
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-      root.classList.add(systemTheme);
+  const setMode = (next: Mode, origin?: { x: number; y: number }) => {
+    if (next === mode) return;
+
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => { finished: Promise<void> };
+    };
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!doc.startViewTransition || reduced) {
+      setModeState(next);
       return;
     }
 
-    root.classList.add(theme);
-  }, [theme]);
+    // Circle expansion from the toggle position via the View Transitions API.
+    const x = origin?.x ?? window.innerWidth / 2;
+    const y = origin?.y ?? 64;
+    const r = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+    const root = document.documentElement;
+    root.style.setProperty("--vt-x", `${x}px`);
+    root.style.setProperty("--vt-y", `${y}px`);
+    root.style.setProperty("--vt-r", `${r}px`);
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
+    doc.startViewTransition(() => {
+      applyMode(next);
+      flushSync(() => setModeState(next));
+    });
   };
 
+  const toggleMode = (origin?: { x: number; y: number }) =>
+    setMode(mode === "batman" ? "nepal" : "batman", origin);
+
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeContext.Provider value={{ mode, toggleMode, setMode }}>
       {children}
-    </ThemeProviderContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
-export const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider");
-  return context;
-};
+export function useMode() {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useMode must be used within ThemeProvider");
+  return ctx;
+}
+
+// Back-compat alias for any legacy imports.
+export const useTheme = useMode;

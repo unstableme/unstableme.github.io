@@ -1,0 +1,70 @@
+/* ---------------------------------------------------------------------------
+   DARK KNIGHT MODE — Gotham surveillance palette.
+   Tailwind semantic tokens (HSL triplets) + mode-specific extras.
+--------------------------------------------------------------------------- */
+:root[data-mode="batman"] {
+  --background: 240 20% 5%;            /* #0a0a0f near-black */
+  --foreground: 45 15% 89%;            /* #e8e6e0 warm off-white */
+  --card: 240 23% 8%;                  /* #0f0f18 dark navy surface */
+  --card-foreground: 45 15% 89%;
+  --popover: 240 20% 5%;
+  --popover-foreground: 45 15% 89%;
+  --primary: 47 92% 53%;               /* #f5c518 bat-signal gold */
+  --primary-foreground: 47 92% 6%;
+  --secondary: 240 23% 10%;            /* #141420 */
+  --secondary-foreground: 45 15% 89%;
+  --muted: 240 12% 25%;
+  --muted-foreground: 240 10% 62%;     /* muted cool gray */
+  --accent: 47 92% 53%;
+  --accent-foreground: 47 92% 6%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 28% 14%;               /* #1a1a2e thin borders */
+  --input: 240 28% 14%;
+  --ring: 47 92% 53%;
+  --radius: 0.25rem;
+
+  /* Mode extras (raw values, non-tailwind) */
+  --accent-link: #f5c518;
+  --bg-gradient: linear-gradient(180deg, #0a0a0f 0%, #0d0d18 100%);
+  --surface-hover-border: rgba(245, 197, 24, 0.45);
+  --heading-font: "Inter", system-ui, sans-serif;
+  --mono-font: "JetBrains Mono", ui-monospace, monospace;
+  --body-font: "Inter", system-ui, sans-serif;
+  --grain-opacity: 0.05;
+  --glow: 0 0 24px rgba(245, 197, 24, 0.18);
+}
+
+:root[data-mode="batman"] body {
+  background: var(--bg-gradient);
+}
+
+/* Scan-line sweep on case-file cards.
+   :where() keeps specificity at (0,1,0) so Tailwind positioning utilities
+   (.fixed, .absolute) still win on elements that need them. */
+:where(:root[data-mode="batman"]) .mode-card {
+  position: relative;
+  overflow: hidden;
+}
+:root[data-mode="batman"] .mode-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(245, 197, 24, 0.02) 3px,
+    rgba(245, 197, 24, 0.02) 4px
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+:root[data-mode="batman"] .mode-card:hover::after {
+  opacity: 1;
+}
+:root[data-mode="batman"] .mode-card:hover {
+  border-color: var(--surface-hover-border);
+  box-shadow: var(--glow);
+}

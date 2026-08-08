@@ -10,10 +10,10 @@ const ChatMessage = ({ message }: Props) => {
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
       <div
-        className={`max-w-[75%] px-3 py-2 rounded-lg text-sm ${
+        className={`max-w-[75%] px-3 py-2 text-sm ${
           isUser
-            ? "bg-blue-600 text-white rounded-br-none"
-            : "bg-gray-100 text-gray-800 rounded-bl-none"
+            ? "bg-primary text-primary-foreground rounded-lg rounded-br-none"
+            : "bg-secondary text-secondary-foreground border border-border rounded-lg rounded-bl-none"
         }`}
       >
         {message.content}

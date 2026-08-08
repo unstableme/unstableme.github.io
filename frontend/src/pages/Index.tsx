@@ -1,45 +1,44 @@
-
-import { ThemeProvider } from "@/context/ThemeContext";
-import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { EducationSection } from "@/components/sections/EducationSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
-import { SkillsSection } from "@/components/sections/SkillsSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { PublicationSection } from "@/components/sections/PublicationSection";
-import { ArticlesSection } from "@/components/sections/ArticlesSection";
-import { HobbiesSection } from "@/components/sections/HobbiesSection";
-import { ResumeSection } from "@/components/sections/ResumeSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { useState } from "react";
+import { Navbar } from "@/components/layout/Navbar";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { Footer } from "@/components/layout/Footer";
+import { CommandPalette } from "@/components/layout/CommandPalette";
+import { CursorParticles } from "@/components/effects/CursorParticles";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Timeline } from "@/components/sections/Timeline";
+import { Skills } from "@/components/sections/Skills";
+import { Projects } from "@/components/sections/Projects";
+import { Publications } from "@/components/sections/Publications";
+import { Articles } from "@/components/sections/Articles";
+import { Contact } from "@/components/sections/Contact";
 
 const Index = () => {
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
   return (
-    <ThemeProvider defaultTheme="dark">
-      <div className="min-h-screen relative">
-        <Navbar />
-        
-        <main className="transition-all duration-300 ease-out-expo pt-20 px-4 md:px-12 lg:px-20">
-          <HeroSection />
-          <AboutSection />
-          <EducationSection />
-          <ExperienceSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <PublicationSection />
-          <ArticlesSection />
-          <HobbiesSection />
-          <ResumeSection />
-          <ContactSection />
-          
-          <footer className="py-8 text-center text-sm text-muted-foreground">
-            <div className="container">
-              <p>© {new Date().getFullYear()} Santosh. All rights reserved.</p>
-            </div>
-          </footer>
-        </main>
+    <div className="min-h-screen relative">
+      <div className="grain-overlay" aria-hidden="true" />
+      <CursorParticles />
+      <Navbar onOpenPalette={() => setPaletteOpen(true)} />
+      <ScrollProgress />
+      <CommandPalette open={paletteOpen} setOpen={setPaletteOpen} />
+
+      <main className="relative z-10">
+        <Hero />
+        <About />
+        <Timeline />
+        <Skills />
+        <Projects />
+        <Publications />
+        <Articles />
+        <Contact />
+      </main>
+
+      <div className="relative z-10">
+        <Footer />
       </div>
-    </ThemeProvider>
+    </div>
   );
 };
 

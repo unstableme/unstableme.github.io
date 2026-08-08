@@ -1,147 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap');
+@import './styles/batman.css';
+@import './styles/nepal.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
+  /* Fallback (pre-hydration) — batman values so first paint is dark */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 240 10% 2%;  /* #050505 */
-    --foreground: 0 0% 100%;
-    --card: 240 10% 4%;
-    --card-foreground: 0 0% 100%;
-    --popover: 240 10% 2%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 184 100% 50%; /* #00f5ff */
-    --primary-foreground: 184 100% 5%;
-    --secondary: 240 3.7% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 240 5% 40%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 184 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --background: 240 20% 5%;
+    --foreground: 45 15% 89%;
+    --card: 240 23% 8%;
+    --card-foreground: 45 15% 89%;
+    --popover: 240 20% 5%;
+    --popover-foreground: 45 15% 89%;
+    --primary: 47 92% 53%;
+    --primary-foreground: 47 92% 6%;
+    --secondary: 240 23% 10%;
+    --secondary-foreground: 45 15% 89%;
+    --muted: 240 12% 25%;
+    --muted-foreground: 240 10% 62%;
+    --accent: 47 92% 53%;
+    --accent-foreground: 47 92% 6%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 10%;
-    --input: 240 3.7% 10%;
-    --ring: 184 100% 50%;
-
-    --sidebar-background: 240 10% 2%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 10%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 240 28% 14%;
+    --input: 240 28% 14%;
+    --ring: 47 92% 53%;
+    --radius: 0.25rem;
+    --heading-font: "Inter", system-ui, sans-serif;
+    --mono-font: "JetBrains Mono", ui-monospace, monospace;
+    --body-font: "Inter", system-ui, sans-serif;
+    --accent-link: #f5c518;
+    --grain-opacity: 0.05;
   }
-}
 
-
-@layer base {
   * {
-    @apply border-border selection:bg-primary/10 selection:text-primary;
+    @apply border-border;
   }
-  
-  html {
-    @apply scroll-smooth;
+  ::selection {
+    @apply bg-primary/20 text-primary;
   }
-  
+
+  html,
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden min-h-screen;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
-  }
-  html, body {
-    idth:100vw;
     max-width: 100%;
     overflow-x: hidden;
-}
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight;
   }
 
-  section {
-    @apply py-16 md:py-24;
+  body {
+    @apply bg-background text-foreground antialiased min-h-screen;
+    font-family: var(--body-font);
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    @apply font-bold tracking-tight;
+  }
+
+  .font-themed-mono {
+    font-family: var(--mono-font);
   }
 }
 
 @layer components {
-  .glass {
-    @apply backdrop-blur-xl bg-white/10 border border-white/20 dark:bg-black/20 dark:border-white/10;
-  }
-  
-  .neo {
-    @apply bg-white shadow-[8px_8px_16px_#d9d9d9,-8px_-8px_16px_#ffffff] dark:bg-[#1c1c1c] dark:shadow-[8px_8px_16px_#101010,-8px_-8px_16px_#282828];
-  }
-  
-  .timeline-item {
-    @apply relative pl-8 pb-10 border-l last:border-l-transparent last:pb-0;
-  }
-  
-  .timeline-dot {
-    @apply absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border-2;
-  }
-  
-  .timeline-date {
-    @apply text-sm font-medium text-muted-foreground;
-  }
-  
-  .timeline-title {
-    @apply font-semibold text-lg mb-1;
-  }
-  
-  .timeline-content {
-    @apply text-sm text-muted-foreground;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-  
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-10;
   }
-  
-  .sidebar-link {
-    @apply flex items-center gap-2 px-3 py-2 rounded-md text-sidebar-foreground hover:text-sidebar-primary hover:bg-sidebar-accent/50 transition-all duration-200;
+
+  /* Surface card — themed via CSS vars, scan-lines/hover come from mode css */
+  .mode-card {
+    @apply bg-card border border-border transition-all duration-300;
+    border-radius: var(--radius);
   }
-  
-  .sidebar-link.active {
-    @apply bg-sidebar-accent text-sidebar-primary font-medium;
+
+  .mode-chip {
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-medium border border-border bg-secondary text-secondary-foreground;
+    border-radius: calc(var(--radius) + 6px);
+    font-family: var(--mono-font);
+  }
+
+  .mode-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity;
+    border-radius: var(--radius);
+  }
+
+  .mode-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 font-semibold border border-border text-foreground hover:bg-secondary transition-colors;
+    border-radius: var(--radius);
   }
 }
 
@@ -149,55 +97,87 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  .text-shadow {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r;
-  }
+}
 
-  .section-number {
-    @apply text-primary font-mono text-sm tracking-widest uppercase mb-2 block;
-  }
+/* --------------------------------------------------------------------------
+   Film grain / paper texture overlay
+-------------------------------------------------------------------------- */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
 
-  .cyan-gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[#00a3ff];
+/* --------------------------------------------------------------------------
+   View-transition clip-path circle expansion (mode toggle)
+   Coordinates are injected as --vt-x / --vt-y / --vt-r by ThemeContext.
+-------------------------------------------------------------------------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+  animation: vt-circle-reveal 850ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes vt-circle-reveal {
+  from {
+    clip-path: circle(0px at var(--vt-x, 50%) var(--vt-y, 50%));
   }
-
-  .card-teal-border {
-    @apply border border-primary/20 hover:border-primary/50 transition-colors;
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50%) var(--vt-y, 50%));
   }
 }
 
+/* --------------------------------------------------------------------------
+   Small shared animations
+-------------------------------------------------------------------------- */
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink-caret 1s step-end infinite;
+}
 
 @keyframes breathe {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
-  }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 0 12px hsl(var(--primary) / 0); }
 }
-
 .animate-breathe {
   animation: breathe 3.5s ease-in-out infinite;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 .animate-fade-up {
   animation: fadeUp 0.6s ease-out;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes flag-flutter {
+  0%, 100% { transform: skewY(0deg); }
+  50% { transform: skewY(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
