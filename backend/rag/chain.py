@@ -1,3 +1,4 @@
+import re
 import sys
 import os
 from google import genai
@@ -71,6 +72,15 @@ def _call_gemini(prompt: str) -> str:
     raise RuntimeError("All Gemini models failed")
 
 
+def _strip_markdown(text: str) -> str:
+    """Fallback cleanup in case the model still emits markdown markers."""
+    text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)      # **bold**
+    text = re.sub(r"(?<!\w)\*(\S[^*]*?)\*(?!\w)", r"\1", text)  # *italic*
+    text = re.sub(r"^\s*[\*\-]\s+", "- ", text, flags=re.MULTILINE)  # * bullets -> plain dashes
+    text = re.sub(r"^#+\s*", "", text, flags=re.MULTILINE)  # headers
+    return text
+
+
 def _format_docs(docs):
     return "\n\n".join(d.page_content for d in docs)
 
@@ -91,7 +101,9 @@ def answer_query(query: str, session_id: str) -> str:
     if history:
         rewrite_prompt = (
             f"Chat history:\n{_history_text(history)}\n\n"
-            f"Rewrite this as a standalone question: {query}"
+            f"Rewrite this message as a standalone question, resolving references to the chat history. "
+            f"If it is not a question (e.g. a greeting or small talk), return it unchanged. "
+            f"Return only the rewritten message, nothing else.\n\nMessage: {query}"
         )
         search_question = _call_gemini(rewrite_prompt).strip()
     else:
@@ -101,15 +113,25 @@ def answer_query(query: str, session_id: str) -> str:
     context = _format_docs(docs)
 
     answer_prompt = (
-        f"You are an assistant answering questions about Santosh.\n"
-        f"Use ONLY the context below. If the answer is not in the context, say you don't know.\n\n"
+        f"You are a friendly assistant on Santosh's portfolio website, chatting with a visitor.\n"
+        f"Rules:\n"
+        f"- Base every factual claim about Santosh ONLY on the context below. Never invent details about him.\n"
+        f"- If the visitor greets you, introduces themselves, thanks you, or makes small talk, respond warmly "
+        f"and naturally (use their name if they shared it), then invite them to ask about Santosh. "
+        f"Small talk does not need the context.\n"
+        f"- If asked whether something is mentioned in Santosh's CV, papers, or portfolio and the context "
+        f"does not contain it, give a direct answer like 'No, that doesn't appear in Santosh's CV or portfolio' "
+        f"instead of 'I don't know'.\n"
+        f"- If specific information about Santosh is missing from the context, say his portfolio doesn't cover "
+        f"that and briefly mention the kinds of things you can answer (his work, projects, skills, education, publications).\n"
+        f"- Reply in plain conversational text only: no markdown, no asterisks, no bullet points, no headers.\n\n"
         f"Context:\n{context}\n\n"
     )
     if history:
         answer_prompt += f"Chat history:\n{_history_text(history)}\n\n"
     answer_prompt += f"User: {query}"
 
-    answer = _call_gemini(answer_prompt).strip()
+    answer = _strip_markdown(_call_gemini(answer_prompt).strip())
 
     history.extend([
         HumanMessage(content=query),

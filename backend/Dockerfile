@@ -14,6 +14,9 @@ COPY . .
 # create data folder and download PDFs
 RUN mkdir -p data
 
+# changes every CI run, so the PDF downloads and ingestion below are never served from cache
+ARG CACHEBUST=1
+
 RUN python -c "import urllib.request; urllib.request.urlretrieve('https://raw.githubusercontent.com/unstableme/Complete_Pipeline_BreastCancerGradCAM/main/Paper_on_IDC_detection_using_CNN.pdf', 'data/Paper_on_IDC_detection_using_CNN.pdf')"
 RUN python -c "import urllib.request; urllib.request.urlretrieve('https://unstableme.github.io/Santosh_Sapkota_CV.pdf','data/Santosh_Sapkota_CV.pdf')"
 
