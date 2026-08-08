@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ChatButton from "./ChatButton";
 import ChatWindow from "./ChatWindow";
 
@@ -12,6 +12,7 @@ const API_URL =
 
 
 const ChatWidget = () => {
+  const sessionId = useRef(crypto.randomUUID());
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -39,7 +40,7 @@ const ChatWidget = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query: text }),
+        body: JSON.stringify({ query: text, session_id: sessionId.current }),
       });
 
       if (!response.ok) {

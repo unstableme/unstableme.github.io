@@ -28,7 +28,7 @@ const ChatWindow = ({ messages, onClose, onSend, isLoading }: Props) => {
 
   return (
     <div
-      className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-96 h-[420px] mode-card shadow-2xl flex flex-col"
+      className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-96 h-[420px] mode-card shadow-2xl flex flex-col rounded-2xl overflow-hidden"
       style={{ backgroundColor: "hsl(var(--card))" }}
     >
       {/* Header */}

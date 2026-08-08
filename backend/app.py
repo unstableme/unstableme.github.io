@@ -32,6 +32,7 @@ app.add_middleware(
 
 class ChatRequest(BaseModel):
     query: str
+    session_id: str
 
 class ChatResponse(BaseModel):
     answer: str
@@ -42,7 +43,7 @@ def health():
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):
-    answer = answer_query(req.query)
+    answer = answer_query(req.query, req.session_id)
     return {"answer": answer}
 
 print("✓ All routes registered", file=sys.stderr)
