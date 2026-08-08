@@ -4,6 +4,5 @@ vectordb/
 *.bin
 myvenv
 .env
-data/*.pdf
 
 

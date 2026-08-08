@@ -4,7 +4,6 @@
 myvenv/
 __pycache__/
 rag/__pycache__/
-data/
 vectordb/
 *.pyc
 *.pyo

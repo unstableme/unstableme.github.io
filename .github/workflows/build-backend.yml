@@ -28,6 +28,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Sync CV from frontend/public into build context
+        run: cp frontend/public/Santosh_Sapkota_CV.pdf backend/data/Santosh_Sapkota_CV.pdf
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:

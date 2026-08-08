@@ -11,14 +11,10 @@ RUN python -c "from sentence_transformers import SentenceTransformer; \
 
 COPY . .
 
-# create data folder and download PDFs
-RUN mkdir -p data
+# PDFs for ingestion are committed in data/ and arrive via COPY . . above
 
-# changes every CI run, so the PDF downloads and ingestion below are never served from cache
+# changes every CI run, so ingestion below (which also scrapes the live site) is never served from cache
 ARG CACHEBUST=1
-
-RUN python -c "import urllib.request; urllib.request.urlretrieve('https://raw.githubusercontent.com/unstableme/Complete_Pipeline_BreastCancerGradCAM/main/Paper_on_IDC_detection_using_CNN.pdf', 'data/Paper_on_IDC_detection_using_CNN.pdf')"
-RUN python -c "import urllib.request; urllib.request.urlretrieve('https://unstableme.github.io/Santosh_Sapkota_CV.pdf','data/Santosh_Sapkota_CV.pdf')"
 
 # Install system dependencies for opencv, unstructured, and PDF processing
 RUN apt-get update && apt-get install -y \
