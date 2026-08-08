@@ -21,5 +21,6 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "../docs", // 🔹 Change output folder to "docs" for GitHub Pages
+    emptyOutDir: true, // outDir is outside project root, so Vite won't clean it unless told to
   },
 }));

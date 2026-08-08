@@ -284,7 +284,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Backend",
     skills: [
       { name: "FastAPI", description: "Python web framework for easy API development" },
-      { name: "SQL - SQLite3", description: "Lightweight database for local applications" },
+      { name: "SQL - PostgreSQL", description: "Robust relational database for production applications" },
     ],
   },
   {
@@ -297,6 +297,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Scikit-learn", description: "Machine learning library for model training & evaluation" },
       { name: "Tensorflow", description: "ML model for training/evaluation." },
       { name: "PyTorch", description: "ML model for training/evaluation." },
+      { name: "OpenCV", description: "Computer vision library for image processing" },
     ],
   },
   {
@@ -366,7 +367,7 @@ export const publications = [
     title: "CNN for detection of breast cancer(IDC) + Grad-CAM for interpretability",
     description: "A CNN-based approach for classifying histopathology images.",
     image: "/IDC_BC.jpeg",
-    doiUrl: "https://doi.org/10.5281/zenodo.15927637",
+    doiUrl: "https://zenodo.org/records/16900047",
   },
 ];
 
