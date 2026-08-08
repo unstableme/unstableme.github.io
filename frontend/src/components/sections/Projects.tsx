@@ -106,6 +106,7 @@ export function Projects() {
           onClick={closeModal}
         >
           <div
+            data-lenis-prevent
             className="mode-card relative w-full max-w-3xl max-h-[90vh] overflow-auto animate-fade-up"
             style={{ backgroundColor: "hsl(var(--card))" }}
             onClick={(e) => e.stopPropagation()}
