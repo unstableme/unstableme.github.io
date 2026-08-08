@@ -30,9 +30,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from typing import Optional
+import uuid
+
 class ChatRequest(BaseModel):
     query: str
-    session_id: str
+    session_id: Optional[str] = None
 
 class ChatResponse(BaseModel):
     answer: str
@@ -43,7 +46,8 @@ def health():
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):
-    answer = answer_query(req.query, req.session_id)
+    session_id = req.session_id or str(uuid.uuid4())
+    answer = answer_query(req.query, session_id)
     return {"answer": answer}
 
 print("✓ All routes registered", file=sys.stderr)
