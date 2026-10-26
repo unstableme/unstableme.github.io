@@ -95,7 +95,13 @@ export function GothamBackdrop() {
       // The flight spans the whole document: perch at the top, chat button
       // at the very bottom.
       const range = Math.max(1, document.documentElement.scrollHeight - vh);
-      if (!startW) return;
+      // The first measure can land before layout has settled (zero-size
+      // signal), which would leave the bat invisible until a resize. Retry.
+      if (!startW) measure();
+      if (!startW) {
+        schedule();
+        return;
+      }
 
       const t = reduced ? 0 : Math.min(1, Math.max(0, window.scrollY / range));
 
@@ -212,9 +218,19 @@ export function GothamBackdrop() {
     apply();
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", onResize);
+    // Re-measure once layout settles: the signal's box changes when fonts,
+    // images or late sections load, and the document height (flight range)
+    // changes with them.
+    window.addEventListener("load", onResize);
+    document.fonts?.ready.then(onResize);
+    const ro = new ResizeObserver(onResize);
+    ro.observe(svg);
+    ro.observe(document.documentElement);
     return () => {
+      ro.disconnect();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onResize);
       cancelAnimationFrame(raf);
     };
   }, []);
