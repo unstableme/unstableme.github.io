@@ -34,7 +34,7 @@ const ChatWindow = ({ messages, onClose, onSend, isLoading }: Props) => {
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border">
         <span className="font-semibold text-sm text-foreground font-themed-mono">
-          {isBat ? "// BATCOMPUTER — ask about Santosh" : "🏔️ Ask about Santosh"}
+          {isBat ? "// BATCOMPUTER — ask about Santosh" : "Ask about Santosh"}
         </span>
         <button onClick={onClose} className="text-muted-foreground hover:text-foreground" aria-label="Close chat">
           ✕

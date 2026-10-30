@@ -29,7 +29,6 @@ export function Timeline() {
         sectionId="timeline"
         label={copy.timeline.label}
         title={copy.timeline.title}
-        status="Records: 5"
       />
 
       {/* Filter pills */}
@@ -63,7 +62,7 @@ export function Timeline() {
                   "absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 bg-primary",
                   isBat
                     ? "border-[#0a0a0f] shadow-[0_0_12px_rgba(245,197,24,0.55)]"
-                    : "border-[#f0ebe0] shadow-[0_0_0_3px_rgba(45,106,79,0.2)]"
+                    : "border-[#F8F7F2] shadow-[0_0_0_3px_rgba(25,60,69,0.2)]"
                 )}
               />
 

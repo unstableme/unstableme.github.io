@@ -3,36 +3,36 @@
    Tailwind semantic tokens (HSL triplets) + mode-specific extras.
 --------------------------------------------------------------------------- */
 :root[data-mode="batman"] {
-  --background: 240 20% 5%;            /* #0a0a0f near-black */
+  --background: 216 29% 7%;             /* #0D1117 midnight */
   --foreground: 45 15% 89%;            /* #e8e6e0 warm off-white */
-  --card: 240 23% 8%;                  /* #0f0f18 dark navy surface */
+  --card: 215 21% 11%;                 /* #161b22 midnight surface */
   --card-foreground: 45 15% 89%;
-  --popover: 240 20% 5%;
+  --popover: 216 29% 7%;
   --popover-foreground: 45 15% 89%;
-  --primary: 47 92% 53%;               /* #f5c518 bat-signal gold */
-  --primary-foreground: 47 92% 6%;
-  --secondary: 240 23% 10%;            /* #141420 */
+  --primary: 16 100% 60%;              /* #FF6B35 ember */
+  --primary-foreground: 216 29% 7%;
+  --secondary: 215 19% 14%;            /* #1c222b */
   --secondary-foreground: 45 15% 89%;
-  --muted: 240 12% 25%;
-  --muted-foreground: 240 10% 62%;     /* muted cool gray */
-  --accent: 47 92% 53%;
-  --accent-foreground: 47 92% 6%;
+  --muted: 215 12% 25%;
+  --muted-foreground: 215 10% 62%;     /* muted cool gray */
+  --accent: 16 100% 60%;
+  --accent-foreground: 216 29% 7%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 28% 14%;               /* #1a1a2e thin borders */
-  --input: 240 28% 14%;
-  --ring: 47 92% 53%;
+  --border: 215 14% 16%;               /* #21262d thin borders */
+  --input: 215 14% 16%;
+  --ring: 16 100% 60%;
   --radius: 0.25rem;
 
   /* Mode extras (raw values, non-tailwind) */
-  --accent-link: #f5c518;
-  --bg-gradient: linear-gradient(180deg, #0a0a0f 0%, #0d0d18 100%);
-  --surface-hover-border: rgba(245, 197, 24, 0.45);
+  --accent-link: #FF6B35;
+  --bg-gradient: linear-gradient(180deg, #0D1117 0%, #10151d 100%);
+  --surface-hover-border: rgba(255, 107, 53, 0.45);
   --heading-font: "Inter", system-ui, sans-serif;
   --mono-font: "JetBrains Mono", ui-monospace, monospace;
   --body-font: "Inter", system-ui, sans-serif;
   --grain-opacity: 0.05;
-  --glow: 0 0 24px rgba(245, 197, 24, 0.18);
+  --glow: 0 0 24px rgba(255, 107, 53, 0.18);
 }
 
 :root[data-mode="batman"] body {
@@ -54,8 +54,8 @@
     0deg,
     transparent 0px,
     transparent 3px,
-    rgba(245, 197, 24, 0.02) 3px,
-    rgba(245, 197, 24, 0.02) 4px
+    rgba(255, 107, 53, 0.02) 3px,
+    rgba(255, 107, 53, 0.02) 4px
   );
   opacity: 0;
   transition: opacity 0.4s ease;

@@ -9,7 +9,7 @@ const FLAG_BORDERS = [
   "rgba(192,57,43,0.5)",
   "rgba(39,174,96,0.5)",
   "rgba(241,196,15,0.6)",
-  "rgba(45,106,79,0.5)",
+  "rgba(25,60,69,0.5)",
 ];
 
 export function Skills() {
@@ -23,7 +23,6 @@ export function Skills() {
         sectionId="skills"
         label={copy.skills.label}
         title={copy.skills.title}
-        status="Systems: Nominal"
       />
 
       <div className="space-y-12">

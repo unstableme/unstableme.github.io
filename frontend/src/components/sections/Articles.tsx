@@ -21,7 +21,6 @@ export function Articles() {
         sectionId="articles"
         label={copy.articles.label}
         title={copy.articles.title}
-        status="Published: Medium"
       />
 
       <Reveal>

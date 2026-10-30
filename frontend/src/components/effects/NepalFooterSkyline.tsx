@@ -156,7 +156,7 @@ export function NepalFooterSkyline() {
         className="absolute inset-x-0 bottom-0 h-full"
         style={{
           background:
-            "linear-gradient(180deg, transparent 0%, rgba(45,106,79,0.05) 55%, rgba(45,106,79,0.12) 100%)",
+            "linear-gradient(180deg, transparent 0%, rgba(25,60,69,0.05) 55%, rgba(25,60,69,0.12) 100%)",
         }}
       />
       <svg

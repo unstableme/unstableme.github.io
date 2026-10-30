@@ -1,35 +1,22 @@
 import { useMode } from "@/context/ThemeContext";
 import { Reveal } from "./Reveal";
 
-const SECTION_EMOJI: Record<string, string> = {
-  about: "🌿",
-  timeline: "🥾",
-  skills: "🎒",
-  projects: "🏔️",
-  publications: "📜",
-  articles: "🍃",
-  hobbies: "🪁",
-  contact: "🙏",
-};
-
 type Props = {
   sectionId: string;
   label: string; // small kicker, e.g. "CASE FILES" / "LAB NOTES"
   title: string;
-  status?: string; // batman-mode status badge, e.g. "Status: Active"
   center?: boolean;
 };
 
 /**
- * Mode-aware section header. Copy (label, title, emoji) is identical in both
+ * Mode-aware section header. Copy (label, title) is identical in both
  * modes for consistency — only the visual treatment shifts identity:
- * Batman keeps the terminal-style kicker and status badge; Nepal keeps the
+ * Batman keeps the terminal-style kicker; Nepal keeps the
  * warm serif heading and ridge-line divider.
  */
-export function SectionHeader({ sectionId, label, title, status, center }: Props) {
+export function SectionHeader({ label, title, center }: Props) {
   const { mode } = useMode();
   const isBat = mode === "batman";
-  const emoji = SECTION_EMOJI[sectionId] ?? "🌿";
 
   return (
     <Reveal className={center ? "text-center" : ""}>
@@ -39,15 +26,9 @@ export function SectionHeader({ sectionId, label, title, status, center }: Props
             <div className="flex items-center gap-3 mb-3 font-themed-mono text-xs tracking-widest text-muted-foreground">
               <span className="text-primary">▣</span>
               <span>{`// ${label}`}</span>
-              {status && (
-                <span className="mode-chip !text-[10px] text-primary border-primary/30">
-                  {status}
-                </span>
-              )}
             </div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground">
-              {title}{" "}
-              <span className="text-3xl md:text-5xl align-middle">{emoji}</span>
+              {title}
             </h2>
             <div className={`mt-4 h-px w-24 bg-primary/50 ${center ? "mx-auto" : ""}`} />
           </>
@@ -57,8 +38,7 @@ export function SectionHeader({ sectionId, label, title, status, center }: Props
               {label}
             </div>
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-              {title}{" "}
-              <span className="text-3xl md:text-5xl align-middle">{emoji}</span>
+              {title}
             </h2>
             {/* ridge-line divider */}
             <svg

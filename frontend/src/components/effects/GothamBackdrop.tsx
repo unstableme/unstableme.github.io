@@ -169,7 +169,7 @@ export function GothamBackdrop() {
       // faint gold rim once it leaves the light, so it reads against the city
       bat.style.filter =
         t > 0.02
-          ? `drop-shadow(0 0 6px rgba(245, 197, 24, ${(0.55 * Math.min(1, t * 6)).toFixed(3)}))`
+          ? `drop-shadow(0 0 6px rgba(255, 107, 53, ${(0.55 * Math.min(1, t * 6)).toFixed(3)}))`
           : "none";
 
       // Trail: a single ribbon hugging the flight path just behind the bat,
@@ -392,7 +392,7 @@ export function GothamBackdrop() {
           <path d="M1060 168 L1120 190 L1116 193 L1058 174 Z" />
         </g>
         {/* a few windows still burning */}
-        <g fill="#f5c518">
+        <g fill="#FF6B35">
           <rect x="60" y="180" width="5" height="8" opacity="0.1" />
           <rect x="96" y="256" width="5" height="8" opacity="0.07" />
           <rect x="185" y="300" width="5" height="8" opacity="0.12" />
@@ -437,9 +437,9 @@ export function GothamBackdrop() {
           the button itself, which the bat lands behind. */}
       <svg
         className="fixed inset-0 w-screen h-screen z-[6] pointer-events-none"
-        style={{ filter: "drop-shadow(0 0 4px rgba(245, 197, 24, 0.35))" }}
+        style={{ filter: "drop-shadow(0 0 4px rgba(255, 107, 53, 0.35))" }}
       >
-        <path ref={trailRef} fill="#f5c518" fillOpacity="0" />
+        <path ref={trailRef} fill="#FF6B35" fillOpacity="0" />
       </svg>
 
       <div

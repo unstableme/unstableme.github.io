@@ -1,37 +1,40 @@
 /* ---------------------------------------------------------------------------
-   NEPALESE HIMALAYA MODE — lokta paper, rhododendron forest, prayer flags.
+   NEPALESE HIMALAYA MODE — porcelain paper, midnight teal, soft sand.
 --------------------------------------------------------------------------- */
 :root[data-mode="nepal"] {
-  --background: 41 35% 91%;            /* #f0ebe0 warm parchment */
-  --foreground: 43 9% 16%;             /* #2c2a25 warm near-black */
-  --card: 40 50% 96%;                  /* soft warm white */
-  --card-foreground: 43 9% 16%;
-  --popover: 40 50% 96%;
-  --popover-foreground: 43 9% 16%;
-  --primary: 153 40% 30%;              /* #2d6a4f deep forest green */
-  --primary-foreground: 40 50% 96%;
-  --secondary: 42 27% 87%;             /* #e8e2d4 darker parchment */
-  --secondary-foreground: 43 9% 16%;
-  --muted: 42 27% 87%;
-  --muted-foreground: 42 9% 42%;       /* warm gray, darkened for contrast */
-  --accent: 153 40% 30%;
-  --accent-foreground: 40 50% 96%;
+  --background: 51 29% 96%;            /* #F8F7F2 porcelain */
+  --foreground: 197 14% 31%;           /* #435359 body text */
+  --card: 51 29% 98%;                  /* lighter porcelain surface */
+  --card-foreground: 197 14% 31%;
+  --popover: 51 29% 98%;
+  --popover-foreground: 197 14% 31%;
+  --primary: 190 47% 18%;              /* #193C45 midnight teal */
+  --primary-foreground: 51 29% 96%;
+  --secondary: 66 14% 93%;             /* #F0F1EC surface */
+  --secondary-foreground: 197 14% 31%;
+  --muted: 66 14% 93%;
+  --muted-foreground: 193 8% 44%;      /* #68767A */
+  --accent: 183 27% 41%;               /* #497D80 soft teal */
+  --accent-foreground: 51 29% 98%;
   --destructive: 6 63% 46%;            /* prayer-flag red */
   --destructive-foreground: 0 0% 98%;
-  --border: 43 20% 79%;                /* #d4cebf */
-  --input: 43 20% 79%;
-  --ring: 153 40% 30%;
+  --border: 120 9% 85%;                /* #D8DED8 */
+  --input: 120 9% 85%;
+  --ring: 183 27% 41%;
   --radius: 0.75rem;
 
   /* Mode extras */
-  --accent-link: #2d6a4f;
-  --bg-gradient: linear-gradient(180deg, #f0ebe0 0%, #e8e2d4 100%);
-  --surface-hover-border: rgba(45, 106, 79, 0.5);
+  --accent-link: #497D80;
+  --highlight: #D8B78D;                /* sand, for small highlights */
+  --active-background: #E5EEEA;
+  --active-border: #497D80;
+  --bg-gradient: linear-gradient(180deg, #F8F7F2 0%, #F5F5EF 100%);
+  --surface-hover-border: rgba(73, 125, 128, 0.55);
   --heading-font: "Fraunces", Georgia, serif;
   --mono-font: "JetBrains Mono", ui-monospace, monospace;
   --body-font: "Inter", system-ui, sans-serif;
-  --grain-opacity: 0.04;
-  --glow: 0 6px 24px rgba(45, 106, 79, 0.12);
+  --grain-opacity: 0.03;
+  --glow: 0 6px 24px rgba(25, 60, 69, 0.10);
 
   /* Prayer flag palette */
   --flag-blue: #3b82b6;
@@ -48,4 +51,10 @@
 :root[data-mode="nepal"] .mode-card:hover {
   border-color: var(--surface-hover-border);
   box-shadow: var(--glow);
+}
+
+/* Headings carry the midnight teal; body text stays softer slate.
+   :where() keeps specificity low so text-* utilities still win. */
+:where(:root[data-mode="nepal"]) :is(h1, h2, h3, h4, h5, h6) {
+  color: #193C45;
 }

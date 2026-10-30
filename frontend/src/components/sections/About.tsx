@@ -30,7 +30,6 @@ export function About() {
         sectionId="about"
         label={copy.about.label}
         title={copy.about.title}
-        status="Clearance: Public"
       />
 
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
@@ -50,7 +49,7 @@ export function About() {
                 style={{
                   background: isBat
                     ? "linear-gradient(180deg, transparent 55%, #0a0a0f)"
-                    : "linear-gradient(180deg, transparent 70%, rgba(45,106,79,0.25))",
+                    : "linear-gradient(180deg, transparent 70%, rgba(25,60,69,0.25))",
                 }}
               />
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
@@ -105,7 +104,7 @@ export function About() {
                 className="mode-btn-primary"
               >
                 <FileDown className="h-4 w-4" />
-                {isBat ? "Download dossier" : "Download résumé"}
+                Download résumé
               </a>
               <a
                 href={profile.legacySite}
@@ -121,7 +120,7 @@ export function About() {
           {/* Hobbies — off-duty grid */}
           <div className="mt-14">
             <h3 className="font-themed-mono text-xs tracking-widest text-muted-foreground uppercase mb-5">
-              {isBat ? "// OFF THE TRAIL 🪁" : "Off the trail 🪁"}
+              {isBat ? "// OFF THE TRAIL" : "Off the trail"}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {hobbies.map((hobby) => (

@@ -505,7 +505,7 @@ export const modeCopy = {
     ...sectionCopy,
   },
   nepal: {
-    heroTagline: "नमस्ते 🙏",
+    heroTagline: "नमस्ते",
     heroScroll: "SCROLL TO EXPLORE",
     ...sectionCopy,
   },

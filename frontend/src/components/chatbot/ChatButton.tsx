@@ -13,13 +13,10 @@ const ChatButton = ({ isOpen, onClick }: Props) => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-      {/* short label on phones so it stays clear of page content */}
+      {/* label hidden on phones — it floated over forms and page content */}
       {!isOpen && (
-        <div className="mode-card px-3 py-1 text-xs text-foreground shadow-md animate-fade-up font-themed-mono">
-          <span className="sm:hidden">{isBat ? "Signal" : "Chat"}</span>
-          <span className="hidden sm:inline">
-            {isBat ? "Signal the assistant" : "Let's chat!"}
-          </span>
+        <div className="hidden sm:block mode-card px-3 py-1 text-xs text-foreground shadow-md animate-fade-up font-themed-mono">
+          {isBat ? "Signal the assistant" : "Let's chat!"}
         </div>
       )}
 

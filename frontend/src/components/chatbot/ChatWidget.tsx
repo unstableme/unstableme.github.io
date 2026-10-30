@@ -18,7 +18,7 @@ const ChatWidget = () => {
     {
       role: "assistant",
       content:
-        "Hi 👋 I’m Santosh’s assistant. Ask me anything about his work, projects, or research.",
+        "Hi, I’m Santosh’s assistant. Ask me anything about his work, projects, or research.",
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);

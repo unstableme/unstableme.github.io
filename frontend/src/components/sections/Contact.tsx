@@ -18,6 +18,12 @@ function MediumIcon() {
   );
 }
 
+// EmailJS credentials are public by design (client-side); set them in frontend/.env
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined; // auto-reply to visitor
+const EMAILJS_NOTIFY_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_NOTIFY_TEMPLATE_ID as string | undefined; // message to me
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
 export function Contact() {
   const { mode } = useMode();
   const isBat = mode === "batman";
@@ -26,7 +32,7 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    emailjs.init("");
+    if (EMAILJS_PUBLIC_KEY) emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
 
   const handleChange = (
@@ -40,19 +46,31 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      // Names match the EmailJS template: {{name}}, {{email}}, {{title}} (the message)
       const templateParams = {
-        from_name: formData.name,
-        reply_to: formData.email,
-        message: formData.message,
-        to_email: "unstableme02@gmail.com",
+        name: formData.name,
+        email: formData.email,
+        title: formData.message,
       };
-      await emailjs.send("service_", "template_", templateParams, "");
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        throw new Error("EmailJS is not configured (VITE_EMAILJS_* missing)");
+      }
+      // The message to me is what matters; the visitor's auto-reply is best-effort.
+      if (EMAILJS_NOTIFY_TEMPLATE_ID) {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NOTIFY_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+        emailjs
+          .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+          .catch((err) => console.error("Auto-reply failed:", err));
+      } else {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+      }
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
       setFormData({ name: "", email: "", message: "" });
-    } catch {
+    } catch (err) {
+      console.error("Contact form send failed:", err);
       toast({
         title: "Error sending message",
         description: "There was a problem sending your message. Please try again later.",
@@ -80,7 +98,6 @@ export function Contact() {
         sectionId="contact"
         label={copy.contact.label}
         title={copy.contact.title}
-        status="Channel: Encrypted"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl">

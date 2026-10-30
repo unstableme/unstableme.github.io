@@ -112,7 +112,7 @@ export function CursorParticles() {
           const size = p.size * (1 + (1 - p.life));
           const alpha = Math.max(0, p.life) * 0.35;
           const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size);
-          g.addColorStop(0, `rgba(245, 197, 24, ${alpha})`);
+          g.addColorStop(0, `rgba(255, 107, 53, ${alpha})`);
           g.addColorStop(0.5, `rgba(214, 158, 20, ${alpha * 0.3})`);
           g.addColorStop(1, "rgba(0,0,0,0)");
           ctx.fillStyle = g;

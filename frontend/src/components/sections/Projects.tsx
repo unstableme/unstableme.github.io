@@ -32,7 +32,6 @@ export function Projects() {
         sectionId="projects"
         label={copy.projects.label}
         title={copy.projects.title}
-        status={`Files: ${projects.length}`}
       />
 
       <Reveal>

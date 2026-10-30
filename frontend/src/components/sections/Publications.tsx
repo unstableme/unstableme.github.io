@@ -15,7 +15,6 @@ export function Publications() {
         sectionId="publications"
         label={copy.publications.label}
         title={copy.publications.title}
-        status="Verified: DOI"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
